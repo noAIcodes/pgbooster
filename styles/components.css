@@ -1,0 +1,242 @@
+/* styles/components.css */
+
+/* Improvise Prompt Card */
+.improvise-prompt {
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    border-left: 4px solid var(--accent-green);
+}
+
+.prompt-title {
+    color: var(--accent-green);
+    margin-bottom: var(--spacing-sm);
+}
+
+.prompt-text {
+    opacity: 0.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.improvise-suggestions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.suggestion-item {
+    padding: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    transition: background var(--transition-fast);
+}
+
+.suggestion-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Section Headers (for Backlog, Revision, Improvise tabs) */
+.section-header {
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.section-title {
+    margin: 0;
+    color: var(--primary-cyan);
+}
+
+.section-description {
+    opacity: 0.7;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Empty State (for Backlog, Revision, Improvise tabs) */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    opacity: 0.6;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-lg);
+    display: inline-block;
+    background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.empty-state h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.empty-state p {
+    margin: 0;
+}
+
+/* Task Cards (for Backlog, Revision, Improvise lists) */
+.task-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl); /* Increased from --spacing-lg for better separation */
+    transition: all var(--transition-normal);
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.task-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.task-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary-cyan);
+    margin: 0;
+}
+
+.task-card-subject {
+    font-size: 0.875rem;
+    opacity: 0.7;
+}
+
+.task-card-body {
+    font-size: 0.875rem;
+    opacity: 0.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.task-card-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    width: 90%;
+    max-width: 500px;
+    padding: var(--spacing-xl);
+    transform: scale(0.95);
+    transition: transform var(--transition-normal);
+}
+
+.modal-overlay.active .modal {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.modal-title {
+    margin: 0;
+    color: var(--primary-cyan);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.modal-body {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.875rem;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-cyan);
+    box-shadow: 0 0 0 2px rgba(0, 245, 255, 0.3);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+}
+
+/* SVG Gradient for Progress Circle */
+svg defs {
+    display: block;
+}

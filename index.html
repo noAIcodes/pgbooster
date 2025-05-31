@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day NEET PG Score Booster</title>
+    <link rel="stylesheet" href="styles/typography.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/themes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <!-- Header -->
+    <header class="header glass-card">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1 class="logo-text">NEET PG <span class="accent">Booster</span></h1>
+                    <p class="logo-subtitle">30-Day Score Enhancement</p>
+                </div>
+                <div class="header-controls">
+                    <div class="progress-ring">
+                        <svg class="progress-circle" width="60" height="60">
+                            <circle cx="30" cy="30" r="25" class="progress-bg"></circle>
+                            <circle cx="30" cy="30" r="25" class="progress-fill" id="progressCircle"></circle>
+                        </svg>
+                        <span class="progress-text" id="progressText">0%</span>
+                    </div>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Navigation Tabs -->
+            <nav class="nav-tabs glass-card">
+                <button class="nav-tab active" data-tab="daily">
+                    <span class="tab-icon">📅</span>
+                    Daily Targets
+                </button>
+                <button class="nav-tab" data-tab="backlog">
+                    <span class="tab-icon">📋</span>
+                    Backlog
+                    <span class="badge" id="backlogBadge">0</span>
+                </button>
+                <button class="nav-tab" data-tab="revision">
+                    <span class="tab-icon">🔄</span>
+                    Revision
+                    <span class="badge" id="revisionBadge">0</span>
+                </button>
+                <button class="nav-tab" data-tab="improvise">
+                    <span class="tab-icon">⚡</span>
+                    Improvise
+                    <span class="badge" id="improviseBadge">0</span>
+                </button>
+            </nav>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Daily Targets Tab -->
+                <div class="tab-pane active" id="daily">
+                    <div class="daily-header glass-card">
+                        <div class="day-info">
+                            <h2 class="day-title">Day <span id="currentDay">1</span></h2>
+                            <p class="day-date" id="currentDate"></p>
+                        </div>
+                        <div class="day-stats">
+                            <div class="stat">
+                                <span class="stat-value" id="completedTasks">0</span>
+                                <span class="stat-label">Completed</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="totalTasks">0</span>
+                                <span class="stat-label">Total</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="daily-content">
+                        <div class="subject-card glass-card" id="dailySubject">
+                            <div class="subject-header">
+                                <h3 class="subject-name" id="subjectName">Loading...</h3>
+                                <span class="subject-badge" id="subjectBadge">High Priority</span>
+                            </div>
+                            <div class="topic-section">
+                                <h4 class="topic-title" id="topicTitle">Loading topic...</h4>
+                                <p class="topic-description" id="topicDescription">Please wait while we load your daily targets.</p>
+                            </div>
+                            <div class="checklist-section">
+                                <h5 class="checklist-title">Study Checklist</h5>
+                                <button class="btn btn-secondary btn-sm" id="addCustomDailyTaskBtn" style="margin-bottom: 10px; margin-top: 5px;">Add Custom Task</button>
+                                <div class="checklist" id="dailyChecklist">
+                                    <!-- Checklist items will be populated by JavaScript -->
+                                </div>
+                            </div>
+                            <div class="topic-actions">
+                                <button class="btn btn-primary" id="markTopicComplete">
+                                    <span class="btn-icon">✓</span>
+                                    Mark Topic Complete
+                                </button>
+                                <button class="btn btn-secondary" id="addToImprovise">
+                                    <span class="btn-icon">⚡</span>
+                                    Add to Improvise List
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="improvise-prompt glass-card" id="improvisePrompt">
+                            <h4 class="prompt-title">Daily Improvise Challenge</h4>
+                            <p class="prompt-text">Complete at least 2 topics from your improvise list today!</p>
+                            <div class="improvise-suggestions" id="improviseToday">
+                                <!-- Improvise suggestions will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backlog Tab -->
+                <div class="tab-pane" id="backlog">
+                    <div class="section-header glass-card">
+                        <h2 class="section-title">Backlog Tasks</h2>
+                        <p class="section-description">Complete these pending tasks to stay on track</p>
+                    </div>
+                    <div class="backlog-content" id="backlogContent">
+                        <div class="empty-state">
+                            <div class="empty-icon">📋</div>
+                            <h3>No backlog tasks</h3>
+                            <p>Great job! You're up to date with your studies.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Revision Tab -->
+                <div class="tab-pane" id="revision">
+                    <div class="section-header glass-card">
+                        <h2 class="section-title">Spaced Repetition</h2>
+                        <p class="section-description">Review these topics to strengthen your memory</p>
+                    </div>
+                    <div class="revision-content" id="revisionContent">
+                        <div class="empty-state">
+                            <div class="empty-icon">🔄</div>
+                            <h3>No revisions due</h3>
+                            <p>Complete some topics to start your revision cycle.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Improvise Tab -->
+                <div class="tab-pane" id="improvise">
+                    <div class="section-header glass-card">
+                        <h2 class="section-title">Special Improvise List</h2>
+                        <p class="section-description">Focus on your weak areas for maximum improvement</p>
+                        <button class="btn btn-primary" id="addNewTopic">
+                            <span class="btn-icon">+</span>
+                            Add Weak Topic
+                        </button>
+                    </div>
+                    <div class="improvise-content" id="improviseContent">
+                        <div class="empty-state">
+                            <div class="empty-icon">⚡</div>
+                            <h3>No topics in improvise list</h3>
+                            <p>Add topics you find challenging to focus on them.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for adding custom daily tasks -->
+    <div class="modal-overlay" id="customTaskModalOverlay">
+        <div class="modal glass-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Custom Daily Task</h3>
+                <button class="modal-close" id="customTaskModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addCustomTaskForm">
+                    <div class="form-group">
+                        <label for="customDailyTaskText">Task Description</label>
+                        <input type="text" id="customDailyTaskText" placeholder="Enter task description" required>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelAddCustomTask">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding new topics -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal glass-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Topic to Improvise List</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addTopicForm">
+                    <div class="form-group">
+                        <label for="topicSubject">Subject</label>
+                        <select id="topicSubject" required>
+                            <option value="">Select Subject</option>
+                            <option value="Anatomy">Anatomy</option>
+                            <option value="Physiology">Physiology</option>
+                            <option value="Biochemistry">Biochemistry</option>
+                            <option value="Pathology">Pathology</option>
+                            <option value="Pharmacology">Pharmacology</option>
+                            <option value="Microbiology">Microbiology</option>
+                            <option value="Medicine">Medicine</option>
+                            <option value="Surgery">Surgery</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Gynecology">Gynecology & Obstetrics</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="topicName">Topic Name</label>
+                        <input type="text" id="topicName" placeholder="e.g., Cardiac Cycle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="topicReason">Why is this challenging? (Optional)</label>
+                        <textarea id="topicReason" placeholder="Describe what makes this topic difficult for you"></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelAdd">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Topic</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/studyPlan.js"></script>
+    <script src="scripts/taskManager.js"></script>
+    <script src="scripts/spacedRepetition.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>

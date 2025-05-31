@@ -1,0 +1,334 @@
+/* styles/themes.css */
+
+/* Light Mode (Default) */
+.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-primary-light);
+}
+
+.light-mode .glass-card {
+    background: var(--bg-card-light);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .header {
+    background: linear-gradient(to bottom, rgba(248, 249, 250, 0.9), rgba(248, 249, 250, 0.7));
+}
+
+.light-mode .logo-text .accent {
+    background: linear-gradient(45deg, #007bff, #6f42c1); /* Adjusted neon for light mode */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.light-mode .progress-bg {
+    stroke: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .progress-fill {
+     stroke: url(#progressGradientLight);
+}
+
+.light-mode .theme-toggle {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: var(--text-primary-light);
+}
+
+.light-mode .nav-tab {
+    color: var(--text-secondary-light);
+}
+
+.light-mode .nav-tab:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary-light);
+}
+
+.light-mode .nav-tab.active {
+    background: linear-gradient(45deg, #007bff, #6f42c1); /* Adjusted neon for light mode */
+    color: white;
+}
+
+.light-mode .badge {
+    background: #28a745; /* Adjusted accent green for light mode */
+    color: white;
+}
+
+.light-mode .day-title {
+    color: #343a40;
+}
+
+.light-mode .stat-value {
+    color: #007bff; /* Adjusted primary cyan for light mode */
+}
+
+.light-mode .subject-name {
+    color: #007bff; /* Adjusted primary cyan for light mode */
+}
+
+.light-mode .subject-badge {
+    background: linear-gradient(45deg, #dc3545, #fd7e14); /* Adjusted magenta/purple for light mode */
+    color: white;
+}
+
+.light-mode .topic-title {
+    color: #28a745; /* Adjusted accent green for light mode */
+}
+
+.light-mode .checklist-item {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.light-mode .checklist-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .checklist-checkbox {
+    border-color: #007bff; /* Adjusted primary cyan for light mode */
+}
+
+.light-mode .checklist-checkbox.checked {
+    background: #007bff; /* Adjusted primary cyan for light mode */
+    color: white;
+}
+
+.light-mode .btn-primary {
+    background: linear-gradient(45deg, #007bff, #6f42c1); /* Adjusted neon for light mode */
+    color: white;
+}
+
+.light-mode .btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+}
+
+.light-mode .btn-secondary {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: var(--text-primary-light);
+}
+
+.light-mode .btn-secondary:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .section-title {
+    color: #007bff; /* Adjusted primary cyan for light mode */
+}
+
+.light-mode .empty-icon {
+    background: linear-gradient(45deg, #007bff, #6f42c1); /* Adjusted neon for light mode */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.light-mode .task-card {
+    background: var(--bg-card-light);
+    border-color: rgba(0,0,0,0.1);
+}
+
+.light-mode .task-card-title {
+    color: #007bff; /* Adjusted primary cyan for light mode */
+}
+
+.light-mode .modal {
+    background: var(--bg-card-light);
+    border-color: rgba(0,0,0,0.1);
+}
+
+.light-mode .modal-title {
+     color: #007bff; /* Adjusted primary cyan for light mode */
+}
+
+.light-mode .form-group input[type="text"],
+.light-mode .form-group textarea,
+.light-mode .form-group select {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: var(--text-primary-light);
+}
+
+.light-mode .form-group input[type="text"]:focus,
+.light-mode .form-group textarea:focus,
+.light-mode .form-group select:focus {
+    border-color: #007bff; /* Adjusted primary cyan for light mode */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+
+/* Dark Mode */
+.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-primary-dark);
+}
+
+.dark-mode .glass-card {
+    background: var(--bg-card-dark);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+.dark-mode .header {
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.7));
+}
+
+.dark-mode .logo-text .accent {
+    background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark-mode .progress-bg {
+    stroke: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .progress-fill {
+    stroke: url(#progressGradientDark);
+}
+
+.dark-mode .theme-toggle {
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    color: var(--text-primary-dark);
+}
+
+.dark-mode .nav-tab {
+    color: var(--text-secondary-dark);
+}
+
+.dark-mode .nav-tab:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary-dark);
+}
+
+.dark-mode .nav-tab.active {
+    background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta));
+    color: white;
+}
+
+.dark-mode .badge {
+    background: var(--accent-green);
+    color: var(--bg-dark);
+}
+
+.dark-mode .day-title {
+    color: var(--text-primary-dark);
+}
+
+.dark-mode .stat-value {
+    color: var(--primary-cyan);
+}
+
+.dark-mode .subject-name {
+    color: var(--primary-cyan);
+}
+
+.dark-mode .subject-badge {
+    background: linear-gradient(45deg, var(--primary-magenta), var(--accent-purple));
+    color: white;
+}
+
+.dark-mode .topic-title {
+    color: var(--accent-green);
+}
+
+.dark-mode .checklist-item {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .checklist-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .checklist-checkbox {
+    border-color: var(--primary-cyan);
+}
+
+.dark-mode .checklist-checkbox.checked {
+    background: var(--primary-cyan);
+    color: var(--bg-dark);
+}
+
+.dark-mode .btn-primary {
+    background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta));
+    color: white;
+}
+
+.dark-mode .btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3);
+}
+
+.dark-mode .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary-dark);
+}
+
+.dark-mode .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .section-title {
+    color: var(--primary-cyan);
+}
+
+.dark-mode .empty-icon {
+    background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark-mode .task-card {
+    background: var(--bg-card-dark);
+    border-color: var(--glass-border);
+}
+
+.dark-mode .task-card-title {
+    color: var(--primary-cyan);
+}
+
+.dark-mode .modal {
+    background: var(--bg-card-dark);
+    border-color: var(--glass-border);
+}
+
+.dark-mode .modal-title {
+     color: var(--primary-cyan);
+}
+
+.dark-mode .form-group input[type="text"],
+.dark-mode .form-group textarea,
+.dark-mode .form-group select {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--glass-border);
+    color: var(--text-primary-dark);
+}
+
+.dark-mode .form-group input[type="text"]:focus,
+.dark-mode .form-group textarea:focus,
+.dark-mode .form-group select:focus {
+    border-color: var(--primary-cyan);
+    box-shadow: 0 0 0 2px rgba(0, 245, 255, 0.2);
+}
+
+/* SVG Gradients for Progress Circle */
+/* These need to be in the HTML or dynamically added if you want them to work with CSS url() */
+/* For now, we'll define them here and you can move them to your SVG definitions in HTML */
+/*
+<svg width="0" height="0">
+  <defs>
+    <linearGradient id="progressGradientLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007bff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6f42c1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="progressGradientDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:var(--primary-cyan);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:var(--primary-magenta);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
+*/

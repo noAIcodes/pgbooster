@@ -1,0 +1,173 @@
+/* styles/layout.css */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.main-content {
+    min-height: calc(100vh - 120px); /* Assuming header height might be around 120px with margins */
+}
+
+/* Header Layout */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+/* Navigation Tabs Layout */
+.nav-tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    overflow-x: auto; /* For responsiveness on small screens */
+}
+
+.nav-tab { /* Basic layout for a tab item */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    white-space: nowrap;
+    position: relative; /* For badges or other positioned elements inside */
+    min-width: fit-content;
+    padding: var(--spacing-md) var(--spacing-lg); /* Moved from main.css */
+}
+
+
+/* Tab Content Layout */
+.tab-content {
+    position: relative; /* For positioning of tab panes or animations */
+}
+
+.tab-pane {
+    display: none; /* Controlled by JS to show active pane */
+    animation: fadeIn var(--transition-normal); /* fadeIn defined in main.css or animations.css */
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Daily Header Layout */
+.daily-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.day-stats {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.stat { /* Layout for individual stat item */
+    text-align: center;
+}
+
+/* Subject Card Layout */
+.subject-card { /* Basic padding and margin for the card */
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.subject-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.topic-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Checklist Layout */
+.checklist-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.checklist-item { /* Layout for a single checklist item */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md); /* Moved from main.css */
+}
+
+/* Topic Actions Layout */
+.topic-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .header {
+        margin: var(--spacing-sm);
+    }
+    
+    .header-content {
+        padding: var(--spacing-md);
+    }
+    
+    .daily-header {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        text-align: center; /* Center content when stacked */
+    }
+    
+    .day-stats {
+        justify-content: center; /* Center stats when header is stacked */
+    }
+    
+    .nav-tabs {
+        padding: var(--spacing-xs); /* Reduce padding on smaller screens */
+    }
+    
+    .nav-tab {
+        padding: var(--spacing-sm) var(--spacing-md); /* Reduce tab padding */
+    }
+    
+    .topic-actions {
+        flex-direction: column; /* Stack action buttons */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Specific layout changes for very small screens */
+    .subject-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+}

@@ -1,0 +1,262 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Neon Color Palette */
+    --primary-cyan: #00f5ff;
+    --primary-magenta: #ff0080;
+    --accent-green: #39ff14;
+    --accent-purple: #bf00ff;
+    --accent-orange: #ff6600;
+    
+    /* Background Colors */
+    --bg-dark: #0a0a0a;
+    --bg-light: #f8f9fa;
+    --bg-card-dark: rgba(255, 255, 255, 0.05);
+    --bg-card-light: rgba(255, 255, 255, 0.8);
+    
+    /* Glass Effects */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --glass-blur: 10px;
+    
+    /* Text Colors */
+    --text-primary-dark: #ffffff;
+    --text-secondary-dark: rgba(255, 255, 255, 0.7);
+    --text-primary-light: #2d3748;
+    --text-secondary-light: #718096;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* Glass Card Effect */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    transition: all var(--transition-normal);
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+/* .header, .header-content, .header-controls styling moved to layout.css */
+/* .logo-text, .accent, .logo-subtitle styling moved to typography.css */
+
+/* Progress Ring */
+.progress-ring {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-circle {
+    transform: rotate(-90deg);
+}
+
+.progress-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1); /* Default, themes.css will override */
+    stroke-width: 3;
+}
+
+.progress-fill {
+    fill: none;
+    stroke: url(#progressGradientDark); /* Default to dark, themes.css will provide light */
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 157; /* Circumference for r=25 */
+    stroke-dashoffset: 157; /* Start empty */
+    transition: stroke-dashoffset var(--transition-slow);
+}
+
+/* .progress-text styling moved to typography.css */
+
+/* Theme Toggle */
+.theme-toggle {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(var(--glass-blur));
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.theme-icon {
+    font-size: 1.25rem;
+    transition: transform var(--transition-normal);
+}
+
+/* Main Content layout moved to layout.css */
+
+/* Navigation Tabs */
+/* .nav-tabs, .nav-tab layout moved to layout.css */
+/* .tab-icon, .badge styling moved to typography.css */
+
+.nav-tab { /* Remaining interaction styles */
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    /* color will be set by themes.css */
+}
+
+.nav-tab:hover {
+    background: rgba(255, 255, 255, 0.1); /* Default, themes.css will override */
+}
+
+.nav-tab.active {
+    background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta)); /* Default, themes.css will override */
+    color: white; /* Default, themes.css will override */
+}
+
+
+/* Tab Content */
+/* .tab-content, .tab-pane layout moved to layout.css */
+
+@keyframes fadeIn { /* This can stay here or move to an animations.css */
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Daily Header */
+/* .daily-header, .day-stats, .stat layout moved to layout.css */
+/* .day-title, .day-date, .stat-value, .stat-label styling moved to typography.css */
+
+
+/* Subject Card */
+/* .subject-card, .subject-header, .topic-section layout moved to layout.css */
+/* .subject-name, .subject-badge, .topic-title, .topic-description styling moved to typography.css */
+
+
+/* Checklist */
+/* .checklist-section, .checklist, .checklist-item layout moved to layout.css */
+/* .checklist-title styling moved to typography.css */
+
+.checklist-item { /* Remaining interaction/visual styles */
+    background: rgba(255, 255, 255, 0.05); /* Default, themes.css will override */
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.checklist-item:hover {
+    background: rgba(255, 255, 255, 0.1); /* Default, themes.css will override */
+}
+
+.checklist-item.completed {
+    opacity: 0.6; /* This could also be theme-dependent */
+    text-decoration: line-through;
+}
+
+.checklist-checkbox { /* Visual style of the checkbox */
+    width: 24px;  /* Increased from 20px for better touch target */
+    height: 24px; /* Increased from 20px for better touch target */
+    border: 2px solid var(--primary-cyan); /* Default, themes.css will override */
+    border-radius: 6px; /* Adjusted for new size */
+    display: flex; /* For centering the checkmark if it's text/icon */
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem; /* For scaling the checkmark icon */
+    transition: all var(--transition-fast);
+}
+
+.checklist-checkbox.checked {
+    background: var(--primary-cyan); /* Default, themes.css will override */
+    color: var(--bg-dark); /* Default, themes.css will override */
+}
+
+/* Buttons */
+/* Base .btn layout (padding, border, radius, cursor, transition, display, gap, text-decoration) */
+.btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none; /* Assuming buttons are primarily background-styled */
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: inline-flex; /* To align icon and text */
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none; /* Remove underline from <a> if used as button */
+    /* font-weight and font-size moved to typography.css */
+}
+
+/* Specific button types (.btn-primary, .btn-secondary) */
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta)); /* Default, themes.css will override */
+    color: white; /* Default, themes.css will override */
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px); /* Interaction effect */
+    box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3); /* Default, themes.css will override for light mode */
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1); /* Default, themes.css will override */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Default, themes.css will override */
+    /* color will be set by themes.css */
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2); /* Default, themes.css will override */
+}
+
+/* .btn-icon styling moved to typography.css */
+
+
+/* Topic Actions */
+/* .topic-actions layout moved to layout.css */
+
+
+/* Responsive Design */
+/* Media queries for layout adjustments are in layout.css */
+/* Media queries for typography adjustments are in typography.css */
+/* General component responsive adjustments can stay here or move to components.css */
+
+@media (max-width: 768px) {
+    .btn { /* If button itself needs layout change like full-width */
+        justify-content: center; /* Center text/icon if it becomes full-width */
+    }
+}
+/* Other responsive rules specific to components not moved can remain or go to components.css */
